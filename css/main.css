@@ -58,16 +58,59 @@ body{
   gap: 28px;
   align-items:center;
 }
+/* HERO TEXT SIZE ADJUSTMENTS */
 .eyebrow{
   font-weight: 800;
   letter-spacing: 2px;
   color: var(--accent);
-  margin:0 0 6px;
-}
-.hero h1{
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
   margin:0 0 10px;
+  font-size: clamp(2rem, 5vw, 3.2rem); /* BIGGER HOLA! */
 }
+
+.hero h1{
+  font-size: clamp(1.6rem, 3vw, 2.2rem); /* SMALLER NAME */
+  margin:0 0 10px;
+  font-weight: 700;
+}
+/* Base font stack */
+body {
+  font-family: "Neue Haas Grotesk Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* If you use a custom font from your MadewithV site, include it here */
+  font-size: 1rem; 
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+/* Eyebrow / HOLA! */
+.eyebrow {
+  font-family: "Neue Haas Grotesk Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;          /* very bold */
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin: 0 0 10px;
+  font-size: clamp(2.8rem, 6vw, 4.4rem); /* match the big size used on your MadewithV site */
+}
+
+/* Name heading */
+.hero h1 {
+  font-family: "Neue Haas Grotesk Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  margin: 0 0 10px;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem); /* a bit smaller than the eyebrow */
+  color: var(--ink);
+}
+
+/* Sub-headline / intro text */
+.subhead {
+  font-family: "Georgia", serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 42ch;
+}
+
+
 .subhead{
   font-size: 1.1rem;
   color: var(--muted);
