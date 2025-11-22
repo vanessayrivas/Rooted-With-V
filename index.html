@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>KitTea</title>
+  <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <!-- Place your site's HTML here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rooted With V — Landscape + Environmental Design</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="projects.js"></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a class="logo" href="index.html">V.</a>
+    <nav class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO / INTRO -->
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <p class="eyebrow">HOLA!</p>
+      <h1>I’m Vanessa.</h1>
+      <p class="subhead">
+        I design landscapes and environmental spaces with a focus on
+        sustainability, planting design, and climate-smart thinking.
+        My work blends creativity, ecology, and real-world site systems — always grounded in people and place.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn primary" href="#projects">See Projects</a>
+        <a class="btn ghost" href="#contact">Let’s Connect</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <!-- swap this with your photo -->
+      <img src="images/vanessa-hero.jpg" alt="Vanessa portrait">
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <p class="section-sub">
+        Selected landscape + environmental design work.
+      </p>
+    </div>
+
+    <div id="projectGrid" class="project-grid">
+      <!-- JS injects cards here -->
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer class="footer" id="contact">
+    <h3>Let’s build something rooted & resilient 🌿</h3>
+    <p>Email: <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a></p>
+    <p class="tiny">© <span id="year"></span> Vanessa Rivas</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
