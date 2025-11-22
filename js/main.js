@@ -1,7 +1,9 @@
 // js/main.js
+
 /* ==========
    PROJECT DATA
    Update/add projects here.
+   Make sure cover/gallery paths match your /img folder.
    ========== */
 
 const PROJECTS = [
@@ -10,7 +12,7 @@ const PROJECTS = [
     title: "Hetch Hetchy Watershed Study",
     year: "2025",
     role: "Hydrology + Landscape Analysis",
-    cover: "images/hetch-cover.jpg",
+    cover: "img/hetch-cover.jpg",
     tags: ["Watershed", "Mapping", "Environmental Design"],
     summary:
       "A landscape and hydrology-based study of the Hetch Hetchy system, focused on water infrastructure, ecological context, and site relationships.",
@@ -24,8 +26,8 @@ const PROJECTS = [
     outcome:
       "A set of interpretive maps and design notes showing how natural systems and infrastructure shape the landscape.",
     gallery: [
-      "images/hetch-1.jpg",
-      "images/hetch-2.jpg"
+      "img/hetch-1.jpg",
+      "img/hetch-2.jpg"
     ]
   },
 
@@ -34,7 +36,7 @@ const PROJECTS = [
     title: "Sierra Nevada Reforestation Nursery Suitability",
     year: "2025",
     role: "ArcGIS + Site Suitability",
-    cover: "images/sierra-cover.jpg",
+    cover: "img/sierra-cover.jpg",
     tags: ["Reforestation", "GIS", "Wildfire Recovery"],
     summary:
       "A climate-smart site suitability analysis to identify optimal locations for a reforestation nursery supporting wildfire recovery.",
@@ -48,8 +50,8 @@ const PROJECTS = [
     outcome:
       "A final suitability map highlighting high-priority nursery zones with clear methodology and design implications.",
     gallery: [
-      "images/sierra-1.jpg",
-      "images/sierra-2.jpg"
+      "img/sierra-1.jpg",
+      "img/sierra-2.jpg"
     ]
   },
 
@@ -58,7 +60,7 @@ const PROJECTS = [
     title: "Landscape Typology Study",
     year: "2024",
     role: "Studio Research + Visual Analysis",
-    cover: "images/typology-cover.jpg",
+    cover: "img/typology-cover.jpg",
     tags: ["Typology", "Studio Work", "Site Systems"],
     summary:
       "A typology-based exploration of landscape types and how form, function, and ecology influence design decisions.",
@@ -72,8 +74,8 @@ const PROJECTS = [
     outcome:
       "A typology set showing clear categories and design takeaways that inform future site thinking.",
     gallery: [
-      "images/typology-1.jpg",
-      "images/typology-2.jpg"
+      "img/typology-1.jpg",
+      "img/typology-2.jpg"
     ]
   }
 ];
@@ -86,7 +88,7 @@ function renderProjectGrid() {
   if (!grid) return;
 
   grid.innerHTML = PROJECTS.map(p => `
-    <article class="project-card" onclick="goToProject('${p.id}')">
+    <article class="project-card" data-id="${p.id}">
       <img class="project-thumb" src="${p.cover}" alt="${p.title}">
       <div class="project-body">
         <h3 class="project-title">${p.title}</h3>
@@ -95,16 +97,20 @@ function renderProjectGrid() {
       </div>
     </article>
   `).join("");
-}
 
-function goToProject(id){
-  window.location.href = `project.html?id=${id}`;
+  // attach click handlers after render (cleaner than inline onclick)
+  grid.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const id = card.getAttribute("data-id");
+      window.location.href = `project.html?id=${id}`;
+    });
+  });
 }
 
 /* ==========
    PROJECT PAGE: render details from URL id
    ========== */
-function renderProjectPage(){
+function renderProjectPage() {
   const mount = document.getElementById("projectPage");
   if (!mount) return;
 
@@ -112,7 +118,7 @@ function renderProjectPage(){
   const id = params.get("id");
   const project = PROJECTS.find(p => p.id === id);
 
-  if (!project){
+  if (!project) {
     mount.innerHTML = `
       <p>Project not found 🥲</p>
       <a class="btn ghost" href="index.html#projects">Back to projects</a>
@@ -159,7 +165,7 @@ function renderProjectPage(){
 }
 
 /* ==========
-   init
+   INIT
    ========== */
 document.addEventListener("DOMContentLoaded", () => {
   renderProjectGrid();
