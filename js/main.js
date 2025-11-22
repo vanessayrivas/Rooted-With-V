@@ -1,172 +1,168 @@
 // js/main.js
-document.addEventListener("DOMContentLoaded", () => {
-  const rand = (min, max) => Math.random() * (max - min) + min;
+/* ==========
+   PROJECT DATA
+   Update/add projects here.
+   ========== */
 
-  // ----- ELEMENTS -----
-  const catHead   = document.querySelector("#cat_head");
-  const backTail  = document.querySelector("#backandtail");
-  const frontLegs = document.querySelector("#Front_legs");
-  const backLeg1  = document.querySelector("#back_leg1");
-  const backLeg2  = document.querySelector("#back_leg_2");
-  const poop      = document.querySelector("#poop");
-  const smell     = document.querySelector("#poop_smell");
+const PROJECTS = [
+  {
+    id: "hetch-hetchy",
+    title: "Hetch Hetchy Watershed Study",
+    year: "2025",
+    role: "Hydrology + Landscape Analysis",
+    cover: "images/hetch-cover.jpg",
+    tags: ["Watershed", "Mapping", "Environmental Design"],
+    summary:
+      "A landscape and hydrology-based study of the Hetch Hetchy system, focused on water infrastructure, ecological context, and site relationships.",
+    problem:
+      "Hetch Hetchy is both an engineered water supply and a complex ecological landscape, requiring layered analysis to understand impacts and opportunities.",
+    process: [
+      "Mapped watershed + terrain relationships.",
+      "Analyzed water flow, storage, and surrounding ecological systems.",
+      "Interpreted design implications for resilience and land stewardship."
+    ],
+    outcome:
+      "A set of interpretive maps and design notes showing how natural systems and infrastructure shape the landscape.",
+    gallery: [
+      "images/hetch-1.jpg",
+      "images/hetch-2.jpg"
+    ]
+  },
 
-  const litter = [
-    ...document.querySelectorAll('#Litter_1 path, #Litter_2 path, #Litter_3 path')
-  ];
+  {
+    id: "sierra-nevada",
+    title: "Sierra Nevada Reforestation Nursery Suitability",
+    year: "2025",
+    role: "ArcGIS + Site Suitability",
+    cover: "images/sierra-cover.jpg",
+    tags: ["Reforestation", "GIS", "Wildfire Recovery"],
+    summary:
+      "A climate-smart site suitability analysis to identify optimal locations for a reforestation nursery supporting wildfire recovery.",
+    problem:
+      "Post-fire recovery needs nursery sites that are accessible, ecologically appropriate, and resilient to future climate stress.",
+    process: [
+      "Compiled slope, burn severity, roads, and water proximity datasets.",
+      "Reclassified and weighted layers into a composite suitability raster.",
+      "Mapped priority zones and evaluated logistics + ecological tradeoffs."
+    ],
+    outcome:
+      "A final suitability map highlighting high-priority nursery zones with clear methodology and design implications.",
+    gallery: [
+      "images/sierra-1.jpg",
+      "images/sierra-2.jpg"
+    ]
+  },
 
-  // Make sure groups rotate around their middles
-  gsap.set([backTail, frontLegs, backLeg1, backLeg2, catHead], { transformOrigin: "50% 50%" });
-
-  // ===== CONFIG KNOBS =====
-  const kickDur = 0.55;      // total rhythm
-  const KICK_1_MAX = 48;     // back leg 1 max rotation (bigger = more kick)
-  const KICK_2_MAX = 54;     // back leg 2 max rotation
-  const KICK_BIAS_X = -3;    // slight pull-back on kicks (px)
-  const LITTER_ANCHOR = {    // where litter appears (relative to SVG space)
-    x: 5,
-    y: 1
-  };
-  const LITTER_JITTER = { x: 4, y: 3 }; // small random spread around anchor
-  const LITTER_INTERVAL = 0.18;         // seconds between litter pulses (continuous stream)
-
-  // ===== TAIL + IDLE =====
-  gsap.to(backTail, { rotation: 6, duration: 0.6, yoyo: true, repeat: -1, ease: "sine.inOut" });
-  gsap.to(catHead,  { y: -0.8, duration: 1.2, yoyo: true, repeat: -1, ease: "sine.inOut" });
-
-  // ===== BIGGER BACK-LEG KICKS =====
-  // Stronger arc + tiny pull-back
-  gsap.to(backLeg1, {
-    rotation: KICK_1_MAX,
-    x: KICK_BIAS_X,
-    duration: kickDur * 0.45,
-    yoyo: true,
-    repeat: -1,
-    ease: "power2.inOut",
-    transformOrigin: "15% 50%"
-  });
-
-  gsap.to(backLeg2, {
-    rotation: KICK_2_MAX,
-    x: KICK_BIAS_X,
-    duration: kickDur * 0.45,
-    yoyo: true,
-    repeat: -1,
-    ease: "power2.inOut",
-    transformOrigin: "15% 50%",
-    delay: 0.1
-  });
-
-  // Front legs: tiny motion only
-  gsap.to(frontLegs, {
-    rotation: -3,
-    duration: 0.7,
-    yoyo: true,
-    repeat: -1,
-    ease: "sine.inOut",
-    transformOrigin: "60% 50%"
-  });
-
-  // ===== LITTER: APPEAR (NO FLYING) =====
-  function litterPulse() {
-    litter.forEach(p => {
-      // prevent overlapping tweens so pulses stay smooth
-      gsap.killTweensOf(p);
-
-      // teleport each piece near the hind legs with small jitter, then fade/scale in place
-      const x = LITTER_ANCHOR.x + rand(-LITTER_JITTER.x, LITTER_JITTER.x);
-      const y = LITTER_ANCHOR.y + rand(-LITTER_JITTER.y, LITTER_JITTER.y);
-
-      gsap.set(p, { x, y, opacity: 0, scale: 0.6, rotation: 0 });
-
-      gsap.timeline()
-        .to(p, {
-          opacity: 1,
-          scale: rand(0.95, 1.2),
-          duration: 0.14,
-          ease: "power1.out"
-        })
-        .to(p, {
-          // hold briefly, barely wiggle (so it feels alive but doesn't move away)
-          rotation: rand(-6, 6),
-          duration: 0.35, // slightly longer so the stream feels fuller
-          ease: "sine.inOut"
-        })
-        .to(p, {
-          opacity: 0,
-          scale: 0.8,
-          duration: 0.28,
-          ease: "power1.in"
-        });
-    });
+  {
+    id: "landscape-typology",
+    title: "Landscape Typology Study",
+    year: "2024",
+    role: "Studio Research + Visual Analysis",
+    cover: "images/typology-cover.jpg",
+    tags: ["Typology", "Studio Work", "Site Systems"],
+    summary:
+      "A typology-based exploration of landscape types and how form, function, and ecology influence design decisions.",
+    problem:
+      "Understanding recurring landscape patterns helps designers read sites faster and respond with better spatial and ecological strategies.",
+    process: [
+      "Collected precedents across multiple landscape types.",
+      "Organized patterns by form, use, and environmental function.",
+      "Translated findings into visual typology diagrams."
+    ],
+    outcome:
+      "A typology set showing clear categories and design takeaways that inform future site thinking.",
+    gallery: [
+      "images/typology-1.jpg",
+      "images/typology-2.jpg"
+    ]
   }
+];
 
-  // ===== CONTINUOUS LITTER LOOP =====
-  function startLitterLoop() {
-    function loop() {
-      litterPulse();
-      gsap.delayedCall(LITTER_INTERVAL, loop);
-    }
-    loop();
-  }
-  startLitterLoop();
+/* ==========
+   HOME PAGE: render project grid
+   ========== */
+function renderProjectGrid() {
+  const grid = document.getElementById("projectGrid");
+  if (!grid) return;
 
-  // ===== POOP POP-IN + SMELL =====
-  gsap.set(poop, { scale: 0.6, opacity: 0, y: 8, transformOrigin: "50% 100%" });
-  gsap.to(poop, { scale: 1, opacity: 1, y: 0, duration: 0.6, delay: 1.1, ease: "back.out(1.7)" });
-
-  const smellPaths = [...smell.querySelectorAll("path")];
-  smellPaths.forEach((w, i) => {
-    const d = 2 + Math.random() * 0.6;
-    const delay = i * 0.35;
-    const float = () => {
-      gsap.fromTo(w, { opacity: 0, y: 8 }, {
-        opacity: 1, y: -24, duration: d, delay, ease: "sine.inOut",
-        onComplete: () => gsap.to(w, {
-          opacity: 0, y: -36, duration: 0.8, ease: "power1.in", onComplete: float
-        })
-      });
-    };
-    float();
-  });
-
-  // ===== MEOW POP-UP =====
-const meow = document.querySelector("#meow");
-
-if (meow) {
-  gsap.set(meow, {
-    scale: 0,
-    opacity: 0,
-    transformBox: "fill-box",
-    transformOrigin: "50% 50%"
-  });
-
-  // Pop it in after the poop appears
-  gsap.to(meow, {
-    scale: 1.2,
-    opacity: 1,
-    duration: 0.5,
-    delay: 1.4,
-    ease: "back.out(1.7)",
-    onComplete: () => {
-      // gentle float / pulse loop so it stays visible but alive
-      gsap.to(meow, {
-        y: -2,
-        scale: 1,
-        duration: 1.2,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut"
-      });
-    }
-  });
+  grid.innerHTML = PROJECTS.map(p => `
+    <article class="project-card" onclick="goToProject('${p.id}')">
+      <img class="project-thumb" src="${p.cover}" alt="${p.title}">
+      <div class="project-body">
+        <h3 class="project-title">${p.title}</h3>
+        <p class="project-meta">${p.role} • ${p.year}</p>
+        <p class="project-meta">${p.summary}</p>
+      </div>
+    </article>
+  `).join("");
 }
 
+function goToProject(id){
+  window.location.href = `project.html?id=${id}`;
+}
 
-  // Pause animation when tab is hidden
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) gsap.globalTimeline.pause();
-    else gsap.globalTimeline.resume();
-  });
+/* ==========
+   PROJECT PAGE: render details from URL id
+   ========== */
+function renderProjectPage(){
+  const mount = document.getElementById("projectPage");
+  if (!mount) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const project = PROJECTS.find(p => p.id === id);
+
+  if (!project){
+    mount.innerHTML = `
+      <p>Project not found 🥲</p>
+      <a class="btn ghost" href="index.html#projects">Back to projects</a>
+    `;
+    return;
+  }
+
+  mount.innerHTML = `
+    <section class="project-hero">
+      <img src="${project.cover}" alt="${project.title}">
+      <h1>${project.title}</h1>
+      <p class="project-meta">${project.role} • ${project.year}</p>
+
+      <div class="project-tags">
+        ${project.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+      </div>
+    </section>
+
+    <section class="project-content">
+      <h2>Summary</h2>
+      <p>${project.summary}</p>
+
+      <h2>Problem / Challenge</h2>
+      <p>${project.problem}</p>
+
+      <h2>Process</h2>
+      <ul>
+        ${project.process.map(step => `<li>${step}</li>`).join("")}
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>${project.outcome}</p>
+
+      ${project.gallery?.length ? `
+        <h2>Gallery</h2>
+        <div class="project-gallery">
+          ${project.gallery.map(img => `<img src="${img}" alt="">`).join("")}
+        </div>
+      ` : ""}
+    </section>
+
+    <a class="btn ghost" href="index.html#projects">← Back to Projects</a>
+  `;
+}
+
+/* ==========
+   init
+   ========== */
+document.addEventListener("DOMContentLoaded", () => {
+  renderProjectGrid();
+  renderProjectPage();
 });
 

@@ -21,26 +21,31 @@
 
   <meta name="theme-color" content="#fafafa">
 </head>
-
-<body>
-  <!-- Place your site's HTML here -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Rooted With V — Landscape + Environmental Design</title>
+
+  <!-- Fonts to match MadewithV vibe -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,ital@9..144,700,1;9..144,900,1&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
   <script defer src="projects.js"></script>
 </head>
+
 <body>
 
   <!-- NAV -->
   <header class="nav">
-    <a class="logo" href="index.html">V.</a>
+    <a class="logo" href="index.html">V</a>
     <nav class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
+      <a href="#projects">Portfolio</a>
+      <a href="#about">Landscape + Environmental Design</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -49,19 +54,28 @@
   <section class="hero" id="about">
     <div class="hero-text">
       <p class="eyebrow">HOLA!</p>
+
       <h1>I’m Vanessa.</h1>
+
+      <p class="mini-title">
+        Landscape + Environmental Designer <br>
+        Sustainability, planting design, and climate-smart spaces
+      </p>
+
       <p class="subhead">
-        Rooted with V is where all my landscape and environmental design projects live. It highlights the work I’ve done with plants, landforms, climate, and ecology, and includes everything from mapping and modeling to research and hands-on explorations. This space shares how I connect design with the natural world and how landscapes inspire the way I see and create.
+        My work blends creativity, ecology, and real site systems to make spaces that feel
+        grounded, resilient, and human. I love projects that connect planting, water, and
+        place into something meaningful.
       </p>
 
       <div class="hero-buttons">
-        <a class="btn primary" href="#projects">See Projects</a>
-        <a class="btn ghost" href="#contact">Let’s Connect</a>
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn ghost" href="#contact">Get in Touch</a>
       </div>
     </div>
 
     <div class="hero-image">
-      <!-- swap this with your photo -->
+      <!-- swap with your portrait -->
       <img src="images/vanessa-hero.jpg" alt="Vanessa portrait">
     </div>
   </section>
@@ -70,26 +84,26 @@
   <section class="projects" id="projects">
     <div class="section-head">
       <h2>Projects</h2>
-      <p class="section-sub">
-        Selected landscape + environmental design work.
-      </p>
+      <p class="section-sub">Selected landscape + environmental design work.</p>
     </div>
 
     <div id="projectGrid" class="project-grid">
-      <!-- JS injects cards here -->
+      <!-- JS injects project cards here -->
     </div>
   </section>
 
   <!-- FOOTER / CONTACT -->
   <footer class="footer" id="contact">
     <h3>Let’s build something rooted & resilient 🌿</h3>
-    <p>Email: <a href="mailto:hello@madewithv.com">hello@madewithv.com</a></p>
+    <p>Email: <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a></p>
     <p class="tiny">© <span id="year"></span> Vanessa Rivas</p>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
 
