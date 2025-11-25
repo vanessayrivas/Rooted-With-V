@@ -52,7 +52,7 @@ body{
   font-style: italic;
   font-size: 1.6rem;
   text-decoration:none;
-  color: var(--accent);
+  color: --accent: #6C8E79;
   letter-spacing: .5px;
 }
 
