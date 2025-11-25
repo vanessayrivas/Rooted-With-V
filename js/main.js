@@ -9,11 +9,11 @@
 const PROJECTS = [
   {
     id: "hetch-hetchy",
-    title: "Hetch Hetchy Watershed Study",
+    title: "Hetch Hetchy Study",
     year: "2025",
-    role: "Hydrology + Landscape Analysis",
-    cover: "img/hetch-cover.jpg",
-    tags: ["Watershed", "Mapping", "Environmental Design"],
+    role: "Landscape Analysis",
+    cover: "img/hetch.jpeg",
+  tags: ["Watershed", "Mapping", "Environmental Design"],
     summary:
       "A landscape and hydrology-based study of the Hetch Hetchy system, focused on water infrastructure, ecological context, and site relationships.",
     problem:
