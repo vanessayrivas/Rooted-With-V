@@ -52,10 +52,9 @@ body{
   font-style: italic;
   font-size: 1.6rem;
   text-decoration:none;
-  color: --accent: #6C8E79;
+  color: var(--accent);
   letter-spacing: .5px;
 }
-
 .nav-links a{
   font-family: var(--font-body);
   font-weight: 600;
@@ -63,12 +62,13 @@ body{
   letter-spacing:.2px;
   margin-left: 16px;
   text-decoration:none;
-  color:   --accent-2: #9BB8A4; /* THIS is the correct syntax */
+  color: var(--accent); /* light sage green */
 }
 
 .nav-links a:hover{
-  color: #5F816C; /* dark sage */
+  color: #5F816C; /* darker sage */
 }
+
 
 /* HERO */
 .hero{
