@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project — Rooted With V</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Rooted With V</title>
 
-  <!-- MATCH HOMEPAGE CSS FILES -->
+  <!-- Same CSS as other pages -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="styles.css">
-
-  <script defer src="js/main.js"></script>
 </head>
 
 <body>
@@ -22,11 +19,48 @@
   </a>
   <nav class="nav-links">
     <a href="index.html#projects">Portfolio</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<section id="projectPage" class="project-page"></section>
+<section class="contact-section" style="max-width:800px; margin:40px auto; padding:20px;">
+  <h1 style="font-family:var(--font-display); font-style:italic; color:var(--accent);">
+    Let's Build Something Rooted & Meaningful 🌿
+  </h1>
+
+  <p style="color:var(--muted); max-width:55ch;">
+    Fill out the form below and I’ll get back to you as soon as possible.
+  </p>
+
+  <form
+    action="https://formspree.io/f/yourFormID"
+    method="POST"
+    class="contact-form"
+    style="display:flex; flex-direction:column; gap:18px; margin-top:20px;"
+  >
+    <label>
+      <span>Name</span>
+      <input type="text" name="name" required
+        style="padding:12px; border-radius:8px; border:1px solid var(--accent-2); font-size:1rem;">
+    </label>
+
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" required
+        style="padding:12px; border-radius:8px; border:1px solid var(--accent-2); font-size:1rem;">
+    </label>
+
+    <label>
+      <span>Tell me about your project</span>
+      <textarea name="message" rows="6" required
+        style="padding:12px; border-radius:8px; border:1px solid var(--accent-2); font-size:1rem;"></textarea>
+    </label>
+
+    <button type="submit" class="btn primary" style="width:max-content;">
+      Send Inquiry
+    </button>
+  </form>
+</section>
 
 </body>
 </html>
