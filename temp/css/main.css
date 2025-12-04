@@ -46,15 +46,12 @@ body{
   border-bottom: 1px solid #eee;
 }
 
-.logo{
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-style: italic;
-  font-size: 1.6rem;
-  text-decoration:none;
-  color: var(--accent);
-  letter-spacing: .5px;
+.logo img {
+  height: 75px;   /* adjust size as needed */
+  width: auto;
+  display: block;
 }
+
 
 .nav-links a{
   font-family: var(--font-body);

@@ -63,10 +63,11 @@ body{
   letter-spacing:.2px;
   margin-left: 16px;
   text-decoration:none;
-  color: var(--ink);
+  color:   --accent-2: #9BB8A4; /* THIS is the correct syntax */
 }
+
 .nav-links a:hover{
-  color: var(--accent);
+  color: #5F816C; /* dark sage */
 }
 
 /* HERO */
@@ -95,20 +96,6 @@ body{
   line-height: 0.95;
   display:inline-block;
   position: relative;
-}
-
-/* cream underline vibe */
-.eyebrow::after{
-  content:"";
-  position:absolute;
-  left: 0.1em;
-  right: -0.2em;
-  bottom: -0.18em;
-  height: 0.25em;
-  background: var(--highlight);
-  z-index: -1;
-  border-radius: 999px;
-  transform: rotate(-1.5deg);
 }
 
 /* Name smaller + sage */
