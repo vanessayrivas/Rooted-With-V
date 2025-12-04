@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Portfolio</title>
+  <title>RootedwithV</title>
   <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,71 +20,67 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rooted with V — Under Construction</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: #f6f5f1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      color: #2f3e2f;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 500px;
-      padding: 30px;
-    }
-
-    img {
-      width: 160px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 25px;
-    }
-
-    .note {
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-  </style>
 </head>
 
-<body>
-  <div class="container">
-    <!-- Plant Illustration (royalty-free, SVG) -->
-    <img src="img/V-LOGO.png"Illustration of a potted plant for Rooted with V" />
+  <!-- NAV -->
+  <header class="nav">
+<a class="logo" href="index.html">
+  <img src="img/V-LOGO.png" alt="Rooted With V logo">
+</a>
+    <nav class="nav-links">
+      <a href="#projects">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO / INTRO -->
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <p class="eyebrow">HOLA!</p>
+
+      <h1>I’m Vanessa.</h1>
 
 
-    <h1>Rooted with V</h1>
-    <p>
-      This space is growing something new.  
-      I’m building a home for my landscape and environmental design work.
-    </p>
+      <p class="subhead">
+        My work blends creativity, ecology, and real site systems to shape spaces that feel grounded, resilient, and human. I love working on projects that connect plants, landforms, and community needs in a meaningful way. I focus on designing places that respond to their environment, support ecological health, and feel beautiful and welcoming to the people who use them.
+      </p>
 
-    <p class="note">Check back soon for updates</p>
-  </div>
+      <div class="hero-buttons">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn ghost" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <!-- Main photo -->
+      <img src="img/Vanessa-headshot.JPG" alt="Vanessa portrait">
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-head">
+      <h2>Projects</h2>
+    </div>
+
+    <div id="projectGrid" class="project-grid">
+      <!-- JS injects project cards here -->
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer class="footer" id="contact">
+    <h3>Let’s build something rooted & resilient 🌿</h3>
+    <p>Email: <a href="mailto:hello@yourdomain.com">hello@rootedwithv.com</a></p>
+    <p class="tiny">© <span id="year"></span> Vanessa Rivas</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+<script defer src="js/main.js"></script>
+
 </body>
 </html>
-
 
