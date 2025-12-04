@@ -60,7 +60,7 @@ body{
   letter-spacing:.2px;
   margin-left: 16px;
   text-decoration:none;
-  color: var(--ink);
+  color: (--accent-soft:#E7EFEA);
 }
 .nav-links a:hover{
   color: var(--accent);
@@ -303,7 +303,7 @@ body{
 
 .project-content{
   font-family: var(--font-body);
-  color:#222;
+  color:var(--accent);
   font-size: 1.1rem;
 }
 
@@ -341,7 +341,7 @@ body{
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 800;
-  color: var(--ink);
+  color: var(--accent);
 }
 
 .footer a{
@@ -361,6 +361,13 @@ body{
     align-items:flex-start;
     gap: 6px;
   }
+}
+.nav-links a {
+  color: var(--accent) !important;
+}
+
+.nav-links a:hover {
+  color: #5F816C !important;
 }
 
 
