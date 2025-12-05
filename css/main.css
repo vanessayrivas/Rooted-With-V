@@ -370,6 +370,17 @@ body{
   color: #5F816C !important;
 }
 
+.contact-form input,
+.contact-form textarea {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--accent);
+}
+
 
 
 
