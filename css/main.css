@@ -370,9 +370,36 @@ body{
   color: #5F816C !important;
 }
 
-.contact-form {
-  max-width: 600px;
+/* CONTACT PAGE LAYOUT */
+.contact-wrapper {
+  max-width: 650px;
   margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-subtext {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form styling from earlier */
+.contact-form {
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -406,6 +433,7 @@ body{
 }
 
 
+
 /* Under Construction badge on thumbnails */
 .thumb-wrapper {
   position: relative;
@@ -434,4 +462,62 @@ body{
   box-shadow: var(--shadow);
 }
 
+/* ===========================
+   MOBILE RESPONSIVE STYLES
+   =========================== */
+@media (max-width: 600px) {
+
+  .contact-wrapper {
+    padding: 20px 16px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .contact-subtext {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  /* Form fields: full-width + tighter spacing */
+  .contact-form {
+    gap: 18px;
+  }
+
+  .form-row label {
+    font-size: 1rem;
+  }
+
+  .form-row input,
+  .form-row textarea {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .btn.primary {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    fon
+
+    @media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+}
+/* Hide homepage contact section only on mobile */
+@media (max-width: 700px) {
+  body.index .footer#contact {
+    display: none !important;
+  }
+}
 

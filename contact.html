@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Rooted With V</title>
 
-  <!-- Same CSS as other pages -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="styles.css">
@@ -19,41 +18,50 @@
   </a>
   <nav class="nav-links">
     <a href="index.html#projects">Portfolio</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </nav>
 </header>
 
-<section class="contact-section" style="max-width:800px; margin:40px auto; padding:20px;">
-  <h1 style="font-family:var(--font-display); font-style:italic; color:var(--accent);">
-    Let's Build Something Rooted & Meaningful 🌿
+<section class="contact-wrapper">
+
+  <h1 class="contact-title">
+    Let's Build Something Rooted & Meaningful
   </h1>
 
-  <p style="color:var(--muted); max-width:55ch;">
+  <p class="contact-subtext">
     Fill out the form below and I’ll get back to you as soon as possible.
   </p>
 
-  <form action="https://formsubmit.co/hello@madewithv.com" method="POST" class="contact-form">
+  <form 
+    action="https://formsubmit.co/hello@madewithv.com" 
+    method="POST"
+    class="contact-form"
+  >
 
-  <div class="form-row">
-    <label>Name</label>
-    <input type="text" name="name" required>
-  </div>
+    <div class="form-row">
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" required>
+    </div>
 
-  <div class="form-row">
-    <label>Email</label>
-    <input type="email" name="email" required>
-  </div>
+    <div class="form-row">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" required>
+    </div>
 
-  <div class="form-row">
-    <label>Tell me about your project</label>
-    <textarea name="message" rows="6" required></textarea>
-  </div>
+    <div class="form-row">
+      <label for="message">Tell me about your project</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+    </div>
 
-  <button type="submit" class="btn primary">Send Inquiry</button>
+    <button type="submit" class="btn primary">Send Inquiry</button>
 
-</form>
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+  </form>
 
 </section>
 
 </body>
 </html>
+
