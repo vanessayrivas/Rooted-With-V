@@ -1,7 +1,5 @@
 // js/main.js
 
-// js/main.js
-
 /* ==========
    PROJECT DATA
    Update/add projects here.
@@ -69,4 +67,133 @@ const PROJECTS = [
     summary:
       "A typology-based exploration of landscape types and how form, function, and ecology influence design decisions.",
     problem:
-      "Understanding recurring landscape patterns helps designers read sites 
+      "Understanding recurring landscape patterns helps designers read sites faster and respond with better spatial and ecological strategies.",
+    process: [
+      "Collected precedents across multiple landscape types.",
+      "Organized patterns by form, use, and environmental function.",
+      "Translated findings into visual typology diagrams."
+    ],
+    outcome:
+      "A typology set showing clear categories and design takeaways that inform future site thinking.",
+    gallery: [
+      "img/typology-1.jpg",
+      "img/typology-2.jpg"
+    ]
+  }
+];
+
+/* ==========
+   HOME PAGE: render project grid
+   ========== */
+
+function renderProjectGrid() {
+  const grid = document.getElementById("projectGrid");
+  if (!grid) return;
+
+  grid.innerHTML = PROJECTS.map(p => `
+    <article class="project-card" data-id="${p.id}">
+      <div class="thumb-wrapper">
+        <img class="project-thumb" src="${p.cover}" alt="${p.title}">
+        ${p.underConstruction ? `
+          <div class="uc-badge">Under Construction</div>
+        ` : ""}
+      </div>
+
+      <div class="project-body">
+        <h3 class="project-title">${p.title}</h3>
+        <p class="project-meta">${p.role} • ${p.year}</p>
+        <p class="project-meta">${p.summary}</p>
+      </div>
+    </article>
+  `).join("");
+
+  grid.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const id = card.getAttribute("data-id");
+      window.location.href = `project.html?id=${id}`;
+    });
+  });
+}
+
+
+/* ==========
+   PROJECT PAGE: render details from URL id
+   ========== */
+
+function renderProjectPage() {
+  const mount = document.getElementById("projectPage");
+  if (!mount) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const project = PROJECTS.find(p => p.id === id);
+
+  if (!project) {
+    mount.innerHTML = `
+      <p>Project not found 🥲</p>
+      <a class="btn ghost" href="index.html#projects">Back to projects</a>
+    `;
+    return;
+  }
+
+  mount.innerHTML = `
+    ${project.underConstruction ? `
+      <div style="
+        padding: 12px 18px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-radius: 12px;
+        font-weight: 700;
+        font-style: italic;
+        margin-bottom: 20px;
+        text-align: center;
+      ">
+        🚧 This project is currently under construction 🚧
+      </div>
+    ` : ""}
+
+    <section class="project-hero">
+      <img src="${project.cover}" alt="${project.title}">
+      <h1>${project.title}</h1>
+      <p class="project-meta">${project.role} • ${project.year}</p>
+
+      <div class="project-tags">
+        ${project.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+      </div>
+    </section>
+
+    <section class="project-content">
+      <h2>Summary</h2>
+      <p>${project.summary}</p>
+
+      <h2>Problem / Challenge</h2>
+      <p>${project.problem}</p>
+
+      <h2>Process</h2>
+      <ul>
+        ${project.process.map(step => `<li>${step}</li>`).join("")}
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>${project.outcome}</p>
+
+      ${project.gallery?.length ? `
+        <h2>Gallery</h2>
+        <div class="project-gallery">
+          ${project.gallery.map(img => `<img src="${img}" alt="">`).join("")}
+        </div>
+      ` : ""}
+    </section>
+
+    <a class="btn ghost" href="index.html#projects">← Back to Projects</a>
+  `;
+}
+
+/* ==========
+   INIT
+   ========== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProjectGrid();
+  renderProjectPage();
+});

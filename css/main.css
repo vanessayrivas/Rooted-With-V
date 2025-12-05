@@ -60,7 +60,7 @@ body{
   letter-spacing:.2px;
   margin-left: 16px;
   text-decoration:none;
-  color: (--accent-soft:#E7EFEA);
+  color: (--accent-soft: #E7EFEA);
 }
 .nav-links a:hover{
   color: var(--accent);
@@ -381,6 +381,24 @@ body{
   outline: 2px solid var(--accent);
 }
 
+/* Under Construction badge on thumbnails */
+.thumb-wrapper {
+  position: relative;
+}
+
+.uc-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-style: italic;
+  box-shadow: var(--shadow);
+}
 
 
 
