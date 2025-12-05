@@ -12,7 +12,7 @@ const PROJECTS = [
     title: "Hetch Hetchy Study",
     year: "2025",
     role: "Landscape Analysis",
-    cover: "img/hetch.jpeg",
+    cover: "img/slope.jpg",
     tags: ["Watershed", "Mapping", "Environmental Design"],
     summary:
       "A landscape and hydrology-based study of the Hetch Hetchy system, focused on water infrastructure, ecological context, and site relationships.",
@@ -26,8 +26,10 @@ const PROJECTS = [
     outcome:
       "A set of interpretive maps and design notes showing how natural systems and infrastructure shape the landscape.",
     gallery: [
-      "img/hetch-1.jpg",
-      "img/hetch-2.jpg"
+      "img/slope.jpg",
+      "img/hydrology-map.jpg",
+      "img/fire-map.jpg"
+  
     ]
   },
 
@@ -36,7 +38,7 @@ const PROJECTS = [
     title: "Sierra Nevada Reforestation Nursery Suitability",
     year: "2025",
     role: "ArcGIS + Site Suitability",
-    cover: "img/sierra-cover.jpg",
+    cover: "img/sierranevada.jpg",
     underConstruction: true,
     tags: ["Reforestation", "GIS", "Wildfire Recovery"],
     summary:
@@ -61,7 +63,7 @@ const PROJECTS = [
     title: "Landscape Typology Study",
     year: "2024",
     role: "Studio Research + Visual Analysis",
-    cover: "img/typology-cover.jpg",
+    cover: "img/typology.png",
     underConstruction: true,
     tags: ["Typology", "Studio Work", "Site Systems"],
     summary:

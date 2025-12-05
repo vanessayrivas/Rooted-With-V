@@ -32,34 +32,27 @@
     Fill out the form below and I’ll get back to you as soon as possible.
   </p>
 
-  <form
-    action="https://formspree.io/f/mjknorrz"
-    method="POST"
-    class="contact-form"
-    style="display:flex; flex-direction:column; gap:18px; margin-top:20px;"
-  >
-    <label>
-      <span>Name</span>
-      <input type="text" name="name" required
-        style="padding:12px; border-radius:8px; border:1px solid var(--accent-2); font-size:1rem;">
-    </label>
+  <form action="https://formsubmit.co/hello@madewithv.com" method="POST" class="contact-form">
 
-    <label>
-      <span>Email</span>
-      <input type="email" name="email" required
-        style="padding:12px; border-radius:8px; border:1px solid var(--accent-2); font-size:1rem;">
-    </label>
+  <div class="form-row">
+    <label>Name</label>
+    <input type="text" name="name" required>
+  </div>
 
-    <label>
-      <span>Tell me about your project</span>
-      <textarea name="message" rows="6" required
-        style="padding:12px; border-radius:8px; border:1px solid var(--accent-2); font-size:1rem;"></textarea>
-    </label>
+  <div class="form-row">
+    <label>Email</label>
+    <input type="email" name="email" required>
+  </div>
 
-    <button type="submit" class="btn primary" style="width:max-content;">
-      Send Inquiry
-    </button>
-  </form>
+  <div class="form-row">
+    <label>Tell me about your project</label>
+    <textarea name="message" rows="6" required></textarea>
+  </div>
+
+  <button type="submit" class="btn primary">Send Inquiry</button>
+
+</form>
+
 </section>
 
 </body>
