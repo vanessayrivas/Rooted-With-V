@@ -12,7 +12,7 @@ const PROJECTS = [
     title: "Hetch Hetchy Study",
     year: "2025",
     role: "Landscape Analysis",
-    cover: "img/slope.jpg",
+    cover: "img/slope.jpg", 
     tags: ["Watershed", "Mapping", "Environmental Design"],
     summary:
       "A landscape and hydrology-based study of the Hetch Hetchy system, focused on water infrastructure, ecological context, and site relationships.",
